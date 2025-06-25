@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Crypto Tracker</h1>
+      <h1 className='text-3xl font-bold text-center mb-4'>Crypto Tracker</h1>
 
       <input
         type="text"
