@@ -41,28 +41,29 @@ function App() {
   );
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className='bg-blue-400 min-h-screen px-4 py-10 w-full text-center'>
       <h1 className='text-3xl font-bold text-center mb-4'>Crypto Tracker</h1>
 
-      <input
+      <input className='bg-white max-w-sm py-2 px-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-400 text-center w-200px mb-4'
         type="text"
         placeholder="Search for a coin..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ padding: '8px', marginBottom: '20px', width: '200px' }}
       />
 
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {filteredCoins.map((coin) => (
-            <li key={coin.id}>
-              <img src={coin.image} alt={coin.name} width="25" />
-              {coin.name} ({coin.symbol.toUpperCase()}): ${coin.current_price}
-            </li>
-          ))}
-        </ul>
+        <div className='bg-white p-4 rounded-lg hover:shadow-md grid gap-4 justify-center w-xl mx-auto'>
+          <ul>
+            {filteredCoins.map((coin) => (
+              <li className='flex items-center gap-5 p-3' key={coin.id}>
+                <img src={coin.image} alt={coin.name} width="25" />
+                {coin.name} ({coin.symbol.toUpperCase()}): ${coin.current_price}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
